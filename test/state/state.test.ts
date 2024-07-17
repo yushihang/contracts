@@ -1,7 +1,7 @@
 import { expect } from "chai";
 import { ethers } from "hardhat";
-import { publishState, publishStateWithStubProof } from "../utils/state-utils";
 import { DeployHelper } from "../../helpers/DeployHelper";
+import { publishState, publishStateWithStubProof } from "../utils/state-utils";
 
 const verifierStubName = "VerifierStub";
 
@@ -238,7 +238,17 @@ describe("GIST proofs", () => {
     for (const issuerStateJson of stateTransitionsWithNoProofs) {
       await publishStateWithStubProof(state, issuerStateJson);
       const currentRoot = await state.getGISTRoot();
+
+      const gistProof = await state.getGISTProof(id + "1");
+      console.log("getGISTProof1 = ", gistProof);
+
+      const gistProof2 = await state.getGISTProof(id + "2");
+      console.log("getGISTProof2 = ", gistProof2);
+
+      const gistProof3 = await state.getGISTProof(id + "3");
+      console.log("getGISTProof3 = ", gistProof3);
       const [lastProofRoot] = await state.getGISTProof(id);
+      console.log("lastProofRoot = ", lastProofRoot);
       expect(lastProofRoot).to.equal(currentRoot);
       currentRoots.push(currentRoot);
     }

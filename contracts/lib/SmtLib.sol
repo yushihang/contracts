@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: GPL-3.0
 pragma solidity 0.8.20;
-
+import "hardhat/console.sol";
 import {PoseidonUnit2L, PoseidonUnit3L} from "./Poseidon.sol";
 import {ArrayUtils} from "./ArrayUtils.sol";
 
@@ -219,6 +219,7 @@ library SmtLib {
         uint256 index,
         uint256 historicalRoot
     ) public view onlyExistingRoot(self, historicalRoot) returns (Proof memory) {
+        console.log("============= getProofByRoot =============");
         uint256[] memory siblings = new uint256[](self.maxDepth);
         // Solidity does not guarantee that memory vars are zeroed out
         for (uint256 i = 0; i < self.maxDepth; i++) {
@@ -241,6 +242,13 @@ library SmtLib {
 
         for (uint256 i = 0; i <= self.maxDepth; i++) {
             node = getNode(self, nextNodeHash);
+            console.log("=== depth: ", i);
+
+            console.log("node type:", uint(node.nodeType));
+            console.log("node childLeft:", node.childLeft);
+            console.log("node childRight:", node.childRight);
+            console.log("node index:", node.index);
+            console.log("node value:", node.value);
             if (node.nodeType == NodeType.EMPTY) {
                 break;
             } else if (node.nodeType == NodeType.LEAF) {

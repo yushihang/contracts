@@ -32,7 +32,7 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^5.1.3",
     "eslint-plugin-promise": "^6.1.1",
-    "hardhat": "^2.22.2",
+    "hardhat": "^2.22.3",
     "prettier": "^3.2.5",
     "prettier-plugin-solidity": "^1.1.1",
     "solhint": "^4.5.2",
@@ -60,5 +60,8 @@
     "deploy:state:amoy": "npx hardhat run scripts/deployState.ts --network amoy",
     "deploy:its:amoy": "npx hardhat run scripts/deployIdentityTreeStore.ts --network amoy",
     "slither": "slither ."
+  },
+  "dependencies": {
+    "ethers": "^6.11.1"
   }
 }

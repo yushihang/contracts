@@ -1,13 +1,13 @@
-import { HardhatUserConfig, task } from "hardhat/config";
-import "@typechain/hardhat";
-import "hardhat-gas-reporter";
-import "solidity-coverage";
-import "@openzeppelin/hardhat-upgrades";
 import "@nomicfoundation/hardhat-chai-matchers";
 import "@nomicfoundation/hardhat-verify";
+import "@openzeppelin/hardhat-upgrades";
+import "@typechain/hardhat";
+import "hardhat-gas-reporter";
+import { HardhatUserConfig, task } from "hardhat/config";
+import "solidity-coverage";
 
 const DEFAULT_MNEMONIC =
-  "test test test test test test test test test test test junk";
+  "chronic nice lyrics student online garden boy gate anger scene elevator chair";
 
 // This is a sample Hardhat task. To learn how to create your own go to
 // https://hardhat.org/guides/create-task.html
@@ -90,13 +90,17 @@ const config: HardhatUserConfig = {
     //   },
     // },
     localhost: {
-      url: "http://127.0.0.1:8545",
+      url: "http://127.0.0.1:7545",
       accounts: {
         mnemonic: DEFAULT_MNEMONIC,
         path: "m/44'/60'/0'/0",
         initialIndex: 0,
         count: 20,
       },
+    },
+    ganache: {
+      url: `http://127.0.0.1:7545`,
+      accounts: [`0xd102d648b71259fef04ee3095c608f948f8537bcbb1d23267009877260891249`],
     },
   },
   gasReporter: {

@@ -5,4 +5,5 @@ export const chainIdDefaultIdTypeMap = new Map()
   .set(137, "0x0211") // polygon main
   .set(80001, "0x0212") // polygon mumbai
   .set(80002, "0x0213") // polygon amoy
-  .set(11155111, "0x0223"); // ethereum sepolia
+  .set(11155111, "0x0223") // ethereum sepolia
+  .set(1337, "0x1691");

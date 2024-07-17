@@ -1,6 +1,6 @@
 import { expect } from "chai";
-import { OnchainIdentityDeployHelper } from "../../helpers/OnchainIdentityDeployHelper";
 import { DeployHelper } from "../../helpers/DeployHelper";
+import { OnchainIdentityDeployHelper } from "../../helpers/OnchainIdentityDeployHelper";
 
 describe("Next tests reproduce identity life cycle", function () {
   this.timeout(10000);
