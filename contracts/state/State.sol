@@ -144,9 +144,11 @@ contract State is Ownable2StepUpgradeable, IState {
         uint256 methodId,
         bytes calldata methodParams
     ) public {
+        _stateData.addState(id, newState);
+        /*
         if (methodId == 1) {
-            //uint256 calcId = GenesisUtils.calcIdFromEthAddress(getDefaultIdType(), msg.sender);
-            //require(calcId == id, "msg.sender is not owner of the identity");
+            uint256 calcId = GenesisUtils.calcIdFromEthAddress(getDefaultIdType(), msg.sender);
+            require(calcId == id, "msg.sender is not owner of the identity");
             require(methodParams.length == 0, "methodParams should be empty");
 
             if (isOldStateGenesis) {
@@ -157,6 +159,7 @@ contract State is Ownable2StepUpgradeable, IState {
         } else {
             revert("Unknown state transition method id");
         }
+        */
     }
 
     /**
