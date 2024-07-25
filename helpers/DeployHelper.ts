@@ -1,9 +1,9 @@
-import { ethers, network, upgrades } from "hardhat";
-import { Contract } from "ethers";
 import { SignerWithAddress } from "@nomiclabs/hardhat-ethers/signers";
-import { deployPoseidons } from "./PoseidonDeployHelper";
-import { chainIdDefaultIdTypeMap } from "./ChainIdDefTypeMap";
+import { Contract } from "ethers";
+import { ethers, network, upgrades } from "hardhat";
 import { GenesisUtilsWrapper, PrimitiveTypeUtilsWrapper } from "../typechain";
+import { chainIdDefaultIdTypeMap } from "./ChainIdDefTypeMap";
+import { deployPoseidons } from "./PoseidonDeployHelper";
 
 
 const SMT_MAX_DEPTH = 64;
